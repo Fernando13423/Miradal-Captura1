@@ -1,20 +1,15 @@
 # Miradal-Captura
 MIRADAL-captura es un módulo del proyecto MIRADAL, enfocado en la recolección de datos a través de una digital. Su objetivo principal es permitir a los usuarios registrar su percepción sobre el estado del humedal del Campus Miraflores.
 
-Funcionalidades
-Generación de un ID único para cada participante.
+## Funcionalidades
 
-Presentación de la encuesta en formato web.
+* Diseño e implementacion de interfaz web.
+* Presentación de la encuesta en formato web.
+* Generación de un ID único para cada participante.
 
-Captura y almacenamiento de respuestas.
+## Equipo de trabajo.
++ Samantha Espinoza
 
-Preparación de datos para su análisis en el módulo principal de MIRADAL.
++ Gustavo Melillanca
 
-Equipo de trabajo
-Este subproyecto está desarrollado por el equipo MIRADAL-captura, conformado por:
-
-Samantha Espinoza
-
-Gustavo Melillanca
-
-[Tu nombre]
++ Fernando Ríos.
