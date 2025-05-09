@@ -7,7 +7,7 @@ MIRADAL-captura es un módulo del proyecto MIRADAL, enfocado en la recolección 
 * Presentación de la encuesta en formato web.
 * Generación de un ID único para cada participante.
 
-## Equipo de trabajo.
+## Equipo de trabajo
 + Samantha Espinoza
 
 + Gustavo Melillanca
