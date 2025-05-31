@@ -16,6 +16,6 @@ Facilitar la captura de datos ambientales comunitarios mediante una aplicación 
 
 ## participantes equipo MIRADAL-Captura
 
-Fernando Ríos.
-Samantha Espinoza
-Gustavo Melilanca
+-Fernando Ríos.
+-Samantha Espinoza.
+-Gustavo Melilanca.
