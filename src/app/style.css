@@ -3,11 +3,11 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f0f4f8;
+  background-color: #d1e8de;
 }
 
 .formulario {
-  max-width: 600px;
+  max-width: 500px;
   margin: 20px auto;
   padding: 20px;
   background-color: #ffffff;
@@ -17,7 +17,7 @@ body {
 }
 
 .titulo {
-  font-size: 26px;
+  font-size: 22px;
   font-weight: bold;
   text-align: center;
   color: #00796b;
@@ -60,7 +60,7 @@ body {
 .opciones {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 10px;
   margin-top: 8px;
 }
 

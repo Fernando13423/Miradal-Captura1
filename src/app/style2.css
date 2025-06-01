@@ -1,0 +1,128 @@
+/* Estilo limpio, legible y moderno, con una paleta suave */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f2f5;
+}
+
+.formulario {
+  max-width: 480px;
+  margin: 20px auto;
+  padding: 24px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-sizing: border-box;
+}
+
+.titulo {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  color: #2c3e50;
+}
+
+.pregunta {
+  background-color: #f9fafb;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #e1e5ea;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-text,
+.input-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccd6dd;
+  border-radius: 6px;
+  font-size: 15px;
+  background-color: #ffffff;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.input-text:focus,
+.input-textarea:focus {
+  outline: none;
+  border-color: #00796b;
+  box-shadow: 0 0 0 2px rgba(0, 121, 107, 0.2);
+}
+
+.input-textarea {
+  resize: vertical;
+  min-height: 36px;
+  max-height: 100px;
+  line-height: 1.5;
+}
+
+.opciones {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  color: #34495e;
+  flex-wrap: wrap;
+}
+
+.opciones label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.submit-container {
+  text-align: center;
+}
+
+.submit-btn {
+  padding: 12px 24px;
+  background-color: #00796b;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #004d40;
+}
+
+@media (max-width: 500px) {
+  .formulario {
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .titulo {
+    font-size: 20px;
+  }
+
+  .input-text,
+  .input-textarea {
+    font-size: 14px;
+  }
+
+  .opciones {
+    font-size: 14px;
+  }
+
+  .submit-btn {
+    font-size: 15px;
+  }
+}
