@@ -1,8 +1,18 @@
 'use client';
 import { useState } from 'react';
 import './style.css';
+import Image from 'next/image';
 
 export default function Encuesta() {
+  const [mostrarDescripcion, setMostrarDescripcion] = useState(false);
+
+  const [modoOscuro, setModoOscuro] = useState(false);
+
+const toggleModo = () => {
+  setModoOscuro(!modoOscuro);
+  document.body.classList.toggle('modo-oscuro');
+};
+  
   const [conoce, setConoce] = useState('');
   const [nombre, setNombre] = useState('');
   const [percepciones, setPercepciones] = useState({
@@ -76,18 +86,68 @@ export default function Encuesta() {
 
 
   return (
+    <div>
+      <button className="modo-boton" onClick={toggleModo}>
+        <img
+          src={modoOscuro ? 'luna.png' : 'sol.png'}
+          alt="Cambiar modo"
+          className="icono-modo"
+        />
+      </button>
+    
     <form onSubmit={manejarEnvio} className="formulario">
-      <h1 className="titulo">Encuesta MIRADAL</h1>
+      
+      <div className="imagen-cabecera">
+        <Image
+          src="/image2.jpg"
+          alt="Humedal del campus Miraflores"
+          width={1000}
+          height={200}
+          style={{width: '100%',height: 'auto',objectFit: 'cover'}}
+        />
+        <h1 className="titulo-imagen">MIRADAL</h1>
+      </div>
+
+      <div className="info-humedal">
+        <h2 className='titulo-humedal'>Encuesta MIRADAL</h2>
+
+        <p className="intro-encuesta">
+          Captura de percepciones sobre el humedal del Campus Miraflores
+        </p>
+
+        <button
+          type="button"
+          className="boton-ver-mas"
+          onClick={() => setMostrarDescripcion(prev => !prev)}
+        >
+          {mostrarDescripcion ? 'Ver menos...' : 'Ver más...'}  
+        </button>
+
+        {mostrarDescripcion && (
+          <p className="descripcion-encuesta">
+            Esta encuesta forma parte del proyecto MIRADAL, 
+            una iniciativa estudiantil que busca recopilar 
+            información sobre la percepción que tienen las 
+            personas acerca del estado actual del humedal 
+            ubicado en el Campus Miraflores de la Universidad 
+            Austral de Chile. 
+          </p>
+        )}
+      </div>
 
       <div className="bloque-pregunta">
         <p className="pregunta-titulo">¿Sabes cuál es el nombre de este humedal?</p>
-        <label>
+
+        <div className="opciones-conoce">
+          <label>
           <input type="radio" name="conoce" value="si" onChange={() => setConoce('si')} /> Sí
         </label>
         <label>
           <input type="radio" name="conoce" value="no" onChange={() => setConoce('no')} /> No
         </label>
       </div>
+        
+    </div>
 
       {conoce === 'si' && (
         <div className="bloque-pregunta">
@@ -96,7 +156,7 @@ export default function Encuesta() {
             type="text"
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
-            placeholder="Escribe el nombre del humedal"
+            placeholder="Escribe aquí el nombre del humedal"
             className="input-text"
           />
         </div>
@@ -104,31 +164,34 @@ export default function Encuesta() {
 
       <div className="bloque-pregunta">
         <p className="pregunta-titulo">¿Ves o escuchas?</p>
+
+        <div className="encabezado-opciones">
+          <span></span>
+          <span>Sí</span>
+          <span>No</span>
+        </div>
+
         {[
           ['Aves', 'aves'],
           ['Peces', 'peces'],
           ['Ganado', 'ganado'],
           ['Ranas', 'ranas'],
           ['Insectos', 'insectos'],
-          ['Desechos/basura', 'desechos'],
+          ['Desechos', 'desechos'],
           ['Agua turbia', 'agua'],
         ].map(([etiqueta, nombre]) => (
           <div key={nombre} className="opciones">
             <span>{etiqueta}</span>
-            <label>
-              <input type="radio" name={nombre} value="si" onChange={manejarCambioPercepcion} /> Sí
-            </label>
-            <label>
-              <input type="radio" name={nombre} value="no" onChange={manejarCambioPercepcion} /> No
-            </label>
+              <input type="radio" name={nombre} value="si" onChange={manejarCambioPercepcion} />
+              <input type="radio" name={nombre} value="no" onChange={manejarCambioPercepcion} />
           </div>
         ))}
       </div>
 
       <div className="bloque-pregunta">
         <p className="pregunta-titulo">¿Percibes olores?</p>
-        {['no, no percibo olores', 'sí, y no son molestos', 'sí, y son molestos'].map((opcion, index) => (
-          <label key={index} className="opciones">
+        {['No, no percibo olores', 'Sí, y no son molestos', 'Sí, y son molestos'].map((opcion, index) => (
+          <label key={index} className="opcion-linea">
             <input
               type="radio"
               name="huele"
@@ -157,5 +220,6 @@ export default function Encuesta() {
         <button type="submit" className="submit-btn">Enviar respuestas</button>
       </div>
     </form>
+  </div>
   );
 }
