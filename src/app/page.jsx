@@ -80,6 +80,8 @@ const toggleModo = () => {
     ]
   };
 
+
+ /* DESPUES DE AQUI SE ENVIARÁ CON UN FETCH A LA API*/ 
   console.log(datos);
   alert('Respuestas enviadas. Revisa la consola.');
 };
