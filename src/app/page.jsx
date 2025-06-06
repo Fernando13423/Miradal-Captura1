@@ -86,6 +86,10 @@ export default function Encuesta() {
       ]
     };
 
+
+
+
+    
     // Aquí es donde normalmente se enviaría a la API (con un fetch o axios)
     console.log(datos);  
     alert('Respuestas enviadas en la consola.');  
