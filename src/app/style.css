@@ -146,14 +146,6 @@ body.modo-oscuro .submit-btn:hover {
   box-sizing: border-box;
 }
 
-/*.titulo {
-  font-size: 22px;
-  font-weight: bold;
-  text-align: left;
-  color: #a2e1d9;
-  margin-bottom: 20px;
-}*/
-
 .bloque-pregunta,
 .pregunta {
   background-color: #e4f6f9;
@@ -207,7 +199,7 @@ body.modo-oscuro .submit-btn:hover {
   max-width: 500px;
   margin: 0 auto;
   padding: 0.3rem 0;
-  text-align: center;
+  text-align: left;
 }
 
 .encabezado-opciones {
@@ -221,26 +213,6 @@ body.modo-oscuro .submit-btn:hover {
   text-align: left;
   padding-left: 0.5rem;
 }
-
-/*.opciones {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 8px;
-}
-
-.opciones label {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 16px;
-}
-
-.opciones span {
-  flex: 1;
-  font-weight: 500;
-  color: #444;
-}*/
 
 .radio-group-multiple {
   display: flex;
