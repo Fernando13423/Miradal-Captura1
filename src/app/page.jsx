@@ -1,21 +1,24 @@
-'use client';
-import { useState } from 'react';
-import './style.css';
-import Image from 'next/image';
+'use client'; 
 
-export default function Encuesta() {
-  const [mostrarDescripcion, setMostrarDescripcion] = useState(false);
+import { useState } from 'react'; 
+import './style.css'; 
+import Image from 'next/image'; 
 
-  const [modoOscuro, setModoOscuro] = useState(false);
+export default function Encuesta() {  
+  const [mostrarDescripcion, setMostrarDescripcion] = useState(false);  
 
-const toggleModo = () => {
-  setModoOscuro(!modoOscuro);
-  document.body.classList.toggle('modo-oscuro');
-};
-  
+  const [modoOscuro, setModoOscuro] = useState(false);  
+
+  // Función para alternar el modo oscuro
+  const toggleModo = () => {
+    setModoOscuro(!modoOscuro);  // Alterna el valor del estado de modoOscuro
+    document.body.classList.toggle('modo-oscuro');  
+  };
+
+  // Estado para manejar la respuesta de si conoce o no el nombre del humedal
   const [conoce, setConoce] = useState('');
-  const [nombre, setNombre] = useState('');
-  const [percepciones, setPercepciones] = useState({
+  const [nombre, setNombre] = useState(''); // Estado para manejar el nombre del humedal
+  const [percepciones, setPercepciones] = useState({  // Estado para manejar las percepciones sobre el humedal
     aves: '',
     peces: '',
     ganado: '',
@@ -24,204 +27,210 @@ const toggleModo = () => {
     desechos: '',
     agua: '',
   });
-  const [huele, setHuele] = useState('');
-  const [comentario, setComentario] = useState('');
+  const [huele, setHuele] = useState(''); // Estado para manejar si percibe olores
+  const [comentario, setComentario] = useState('');  // Estado para manejar el comentario adicional
 
+  
   const manejarCambioPercepcion = (e) => {
-    const { name, value } = e.target;
-    setPercepciones(prev => ({ ...prev, [name]: value }));
+    const { name, value } = e.target;  
+    setPercepciones(prev => ({ ...prev, [name]: value })); 
   };
 
- const manejarEnvio = (e) => {
-  e.preventDefault();
+  // Función que maneja el envío del formulario
+  const manejarEnvio = (e) => {
+    e.preventDefault();  // Previene que la página se recargue al enviar el formulario
 
-  // Validación
-  if (conoce === '') {
-    alert('Por favor, responde si conoces el nombre del humedal.');
-    return;
-  }
-  if (conoce === 'si' && nombre.trim() === '') {
-    alert('Por favor, escribe el nombre del humedal.');
-    return;
-  }
-
-  // Validar percepciones
-  const camposPercepcion = ['aves', 'peces', 'ganado', 'ranas', 'insectos', 'desechos', 'agua'];
-  for (let campo of camposPercepcion) {
-    if (percepciones[campo] === '') {
-      alert(`Por favor, responde si ves o escuchas: ${campo}.`);
+    // Validación de los campos
+    if (conoce === '') {
+      alert('Por favor, responde si conoces el nombre del humedal.');
       return;
     }
-  }
+    if (conoce === 'si' && nombre.trim() === '') {
+      alert('Por favor, escribe el nombre del humedal.');
+      return;
+    }
 
-  if (huele === '') {
-    alert('Por favor, indica si percibes olores.');
-    return;
-  }
+    // Validar percepciones
+    const camposPercepcion = ['aves', 'peces', 'ganado', 'ranas', 'insectos', 'desechos', 'agua'];
+    for (let campo of camposPercepcion) {
+      if (percepciones[campo] === '') {
+        alert(`Por favor, responde si ves o escuchas: ${campo}.`);
+        return;
+      }
+    }
 
-  // Si todo está completo, proceder a enviar
-  const timestamp = new Date().toISOString();
-  const idRespuesta = `${Math.random().toString(36).substr(2, 9)}${Date.now().toString(36)}`;
+    if (huele === '') {
+      alert('Por favor, indica si percibes olores.');
+      return;
+    }
 
-  const datos = {
-    "id-respuesta": idRespuesta,
-    respuestas: [
-      { item: "conoce-nombre-humedal", respuesta: conoce },
-      { item: "nombre-humedal", respuesta: conoce === 'si' ? nombre : '' },
-      { item: "percibe-aves", respuesta: percepciones.aves },
-      { item: "percibe-peces", respuesta: percepciones.peces },
-      { item: "percibe-ganado", respuesta: percepciones.ganado },
-      { item: "percibe-ranas", respuesta: percepciones.ranas },
-      { item: "percibe-insectos", respuesta: percepciones.insectos },
-      { item: "percibe-desechos", respuesta: percepciones.desechos },
-      { item: "percibe-agua-turbia", respuesta: percepciones.agua },
-      { item: "huele", respuesta: huele },
-      { item: "comentario", respuesta: comentario || '' },
-    ]
+    // Si todo está correcto, se genera un ID único para la respuesta
+    const random = Math.floor(Math.random() * 100).toString().padStart(2, '0'); // Genera un número aleatorio entre 00 y 99
+    const idRespuesta = `${Date.now()}${random}`; // Genera un ID único combinando el tiempo actual y el número aleatorio
+
+    
+    const datos = {
+      "id-respuesta": idRespuesta,
+      respuestas: [
+        { item: "conoce-nombre-humedal", respuesta: conoce },
+        { item: "nombre-humedal", respuesta: conoce === 'si' ? nombre : '' },
+        { item: "percibe-aves", respuesta: percepciones.aves },
+        { item: "percibe-peces", respuesta: percepciones.peces },
+        { item: "percibe-ganado", respuesta: percepciones.ganado },
+        { item: "percibe-ranas", respuesta: percepciones.ranas },
+        { item: "percibe-insectos", respuesta: percepciones.insectos },
+        { item: "percibe-desechos", respuesta: percepciones.desechos },
+        { item: "percibe-agua-turbia", respuesta: percepciones.agua },
+        { item: "huele", respuesta: huele },
+        { item: "comentario", respuesta: comentario || '' },
+      ]
+    };
+
+    // Aquí es donde normalmente se enviaría a la API (con un fetch o axios)
+    console.log(datos);  
+    alert('Respuestas enviadas en la consola.');  
+
+
+
   };
-
-
- /* DESPUES DE AQUI SE ENVIARÁ CON UN FETCH A LA API*/ 
-  console.log(datos);
-  alert('Respuestas enviadas. Revisa la consola.');
-};
-
-
   return (
     <div>
       <button className="modo-boton" onClick={toggleModo}>
         <img
-          src={modoOscuro ? 'luna.png' : 'sol.png'}
+          src={modoOscuro ? 'luna.png' : 'sol.png'} 
           alt="Cambiar modo"
           className="icono-modo"
         />
       </button>
-    
-    <form onSubmit={manejarEnvio} className="formulario">
+
       
-      <div className="imagen-cabecera">
-        <Image
-          src="/image2.jpg"
-          alt="Humedal del campus Miraflores"
-          width={1000}
-          height={200}
-          style={{width: '100%',height: 'auto',objectFit: 'cover'}}
-        />
-        <h1 className="titulo-imagen">MIRADAL</h1>
-      </div>
-
-      <div className="info-humedal">
-        <h2 className='titulo-humedal'>Encuesta MIRADAL</h2>
-
-        <p className="intro-encuesta">
-          Captura de percepciones sobre el humedal del Campus Miraflores
-        </p>
-
-        <button
-          type="button"
-          className="boton-ver-mas"
-          onClick={() => setMostrarDescripcion(prev => !prev)}
-        >
-          {mostrarDescripcion ? 'Ver menos...' : 'Ver más...'}  
-        </button>
-
-        {mostrarDescripcion && (
-          <p className="descripcion-encuesta">
-            Esta encuesta forma parte del proyecto MIRADAL, 
-            una iniciativa estudiantil que busca recopilar 
-            información sobre la percepción que tienen las 
-            personas acerca del estado actual del humedal 
-            ubicado en el Campus Miraflores de la Universidad 
-            Austral de Chile. 
-          </p>
-        )}
-      </div>
-
-      <div className="bloque-pregunta">
-        <p className="pregunta-titulo">¿Sabes cuál es el nombre de este humedal?</p>
-
-        <div className="opciones-conoce">
-          <label>
-          <input type="radio" name="conoce" value="si" onChange={() => setConoce('si')} /> Sí
-        </label>
-        <label>
-          <input type="radio" name="conoce" value="no" onChange={() => setConoce('no')} /> No
-        </label>
-      </div>
+      <form onSubmit={manejarEnvio} className="formulario">
         
-    </div>
-
-      {conoce === 'si' && (
-        <div className="bloque-pregunta">
-          <p className="pregunta-titulo">¿Cuál es el nombre?</p>
-          <input
-            type="text"
-            value={nombre}
-            onChange={(e) => setNombre(e.target.value)}
-            placeholder="Escribe aquí el nombre del humedal"
-            className="input-text"
+        <div className="imagen-cabecera">
+          <Image
+            src="/image2.jpg"
+            alt="Humedal del campus Miraflores"
+            width={1000}
+            height={200}
+            style={{width: '100%',height: 'auto',objectFit: 'cover'}} 
           />
-        </div>
-      )}
-
-      <div className="bloque-pregunta">
-        <p className="pregunta-titulo">¿Ves o escuchas?</p>
-
-        <div className="encabezado-opciones">
-          <span></span>
-          <span>Sí</span>
-          <span>No</span>
+          <h1 className="titulo-imagen">MIRADAL</h1>
         </div>
 
-        {[
-          ['Aves', 'aves'],
-          ['Peces', 'peces'],
-          ['Ganado', 'ganado'],
-          ['Ranas', 'ranas'],
-          ['Insectos', 'insectos'],
-          ['Desechos', 'desechos'],
-          ['Agua turbia', 'agua'],
-        ].map(([etiqueta, nombre]) => (
-          <div key={nombre} className="opciones">
-            <span>{etiqueta}</span>
+        {/* Información del humedal */}
+        <div className="info-humedal">
+          <h2 className='titulo-humedal'>Encuesta MIRADAL</h2>
+          <p className="intro-encuesta">Captura de percepciones sobre el humedal del Campus Miraflores</p>
+
+          <button
+            type="button"
+            className="boton-ver-mas"
+            onClick={() => setMostrarDescripcion(prev => !prev)} 
+          >
+            {mostrarDescripcion ? 'Ver menos...' : 'Ver más...'}
+          </button>
+
+          
+          {mostrarDescripcion && (
+            <p className="descripcion-encuesta">
+              Esta encuesta forma parte del proyecto MIRADAL, 
+              una iniciativa estudiantil que busca recopilar 
+              información sobre la percepción que tienen las 
+              personas acerca del estado actual del humedal 
+              ubicado en el Campus Miraflores de la Universidad 
+              Austral de Chile. 
+            </p>
+          )}
+        </div>
+
+        <div className="bloque-pregunta">
+          <p className="pregunta-titulo">¿Sabes cuál es el nombre de este humedal?</p>
+          <div className="opciones-conoce">
+            <label>
+              <input type="radio" name="conoce" value="si" onChange={() => setConoce('si')} /> Sí
+            </label>
+            <label>
+              <input type="radio" name="conoce" value="no" onChange={() => setConoce('no')} /> No
+            </label>
+          </div>
+        </div>
+
+        
+        {conoce === 'si' && (
+          <div className="bloque-pregunta">
+            <p className="pregunta-titulo">¿Cuál es el nombre?</p>
+            <input
+              type="text"
+              value={nombre}
+              onChange={(e) => setNombre(e.target.value)} // Actualiza el estado 'nombre'
+              placeholder="Escribe aquí el nombre del humedal"
+              className="input-text"
+            />
+          </div>
+        )}
+
+       
+        <div className="bloque-pregunta">
+          <p className="pregunta-titulo">¿Ves o escuchas?</p>
+          <div className="encabezado-opciones">
+            <span></span>
+            <span>Sí</span>
+            <span>No</span>
+          </div>
+
+         
+          {[
+            ['Aves', 'aves'],
+            ['Peces', 'peces'],
+            ['Ganado', 'ganado'],
+            ['Ranas', 'ranas'],
+            ['Insectos', 'insectos'],
+            ['Desechos', 'desechos'],
+            ['Agua turbia', 'agua'],
+          ].map(([etiqueta, nombre]) => (
+            <div key={nombre} className="opciones">
+              <span>{etiqueta}</span>
               <input type="radio" name={nombre} value="si" onChange={manejarCambioPercepcion} />
               <input type="radio" name={nombre} value="no" onChange={manejarCambioPercepcion} />
-          </div>
-        ))}
-      </div>
+            </div>
+          ))}
+        </div>
 
-      <div className="bloque-pregunta">
-        <p className="pregunta-titulo">¿Percibes olores?</p>
-        {['No, no percibo olores', 'Sí, y no son molestos', 'Sí, y son molestos'].map((opcion, index) => (
-          <label key={index} className="opcion-linea">
-            <input
-              type="radio"
-              name="huele"
-              value={index + 1}
-              onChange={(e) => setHuele(e.target.value)}
-            />
-            {opcion}
-          </label>
-        ))}
-      </div>
+       
+        <div className="bloque-pregunta">
+          <p className="pregunta-titulo">¿Percibes olores?</p>
+          {['No, no percibo olores', 'Sí, y no son molestos', 'Sí, y son molestos'].map((opcion, index) => (
+            <label key={index} className="opcion-linea">
+              <input
+                type="radio"
+                name="huele"
+                value={index + 1}
+                onChange={(e) => setHuele(e.target.value)} // Actualiza el estado 'huele'
+              />
+              {opcion}
+            </label>
+          ))}
+        </div>
 
-      <div className="bloque-pregunta">
-        <p className="pregunta-titulo">Agrega un comentario respecto al humedal si quieres:</p>
-        <textarea
-          name="comentario"
-          value={comentario}
-          onChange={(e) => setComentario(e.target.value)}
-          rows="4"
-          cols="50"
-          placeholder="Escribe tu comentario aquí..."
-          className="input-textarea"
-        />
-      </div>
+        
+        <div className="bloque-pregunta">
+          <p className="pregunta-titulo">Agrega un comentario respecto al humedal si quieres:</p>
+          <textarea
+            name="comentario"
+            value={comentario}
+            onChange={(e) => setComentario(e.target.value)} // Actualiza el estado 'comentario'
+            rows="4"
+            cols="50"
+            placeholder="Escribe tu comentario aquí..."
+            className="input-textarea"
+          />
+        </div>
 
-      <div className="submit-container">
-        <button type="submit" className="submit-btn">Enviar respuestas</button>
-      </div>
-    </form>
-  </div>
+        
+        <div className="submit-container">
+          <button type="submit" className="submit-btn">Enviar respuestas</button>
+        </div>
+      </form>
+    </div>
   );
 }
