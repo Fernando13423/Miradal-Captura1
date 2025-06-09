@@ -175,7 +175,7 @@ export default function Encuesta() {
 
        
         <div className="bloque-pregunta">
-          <p className="pregunta-titulo">En este momento,¿Ves o escuchas?.</p>
+          <p className="pregunta-titulo">En este MOMENTO,¿Ves o escuchas?.</p>
           <div className="encabezado-opciones">
             <span></span>
             <span>Sí</span>
