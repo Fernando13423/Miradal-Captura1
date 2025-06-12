@@ -159,19 +159,18 @@ export default function Encuesta() {
           </div>
         </div>
 
-        
-        {conoce === 'si' && (
-          <div className="bloque-pregunta">
+
+          <div className={`bloque-pregunta desplegable ${conoce === 'si' ? 'activo' : ''}`}>
             <p className="pregunta-titulo">¿Cuál es el nombre?</p>
             <input
               type="text"
               value={nombre}
-              onChange={(e) => setNombre(e.target.value)} // Actualiza el estado 'nombre'
+              onChange={(e) => setNombre(e.target.value)}
               placeholder="Escribe aquí el nombre del humedal"
               className="input-text"
             />
-          </div>
-        )}
+            </div>
+
 
        
         <div className="bloque-pregunta">

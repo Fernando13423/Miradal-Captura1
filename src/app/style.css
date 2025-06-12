@@ -263,3 +263,17 @@ body.modo-oscuro .submit-btn:hover {
 .submit-btn:hover {
   background-color: #00621d;
 }
+
+/*animacion */
+.desplegable {
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  max-height: 0;
+  opacity: 0;
+}
+
+.desplegable.activo {
+  max-height: 200px; /* Ajusta si necesitas más espacio */
+  opacity: 1;
+}
+
