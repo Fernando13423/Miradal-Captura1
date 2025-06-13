@@ -7,9 +7,11 @@ body {
 }
 
 input[type="radio"] {
-  accent-color: #62a700; 
-  width: 19px;
-  height: 19px;
+  accent-color: #62a700;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-right: 8px;
 }
 
 .modo-boton {
@@ -113,7 +115,7 @@ body.modo-oscuro .submit-btn:hover {
   border: none;
   border-radius: 20px;
   cursor: pointer;
-  margin-bottom: 0;
+  margin-bottom:0;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 .boton-ver-mas:hover {
@@ -266,6 +268,7 @@ body.modo-oscuro .submit-btn:hover {
   background-color: #00621d;
   transform: scale(1.05);
 }
+
 /*animacion */
 .desplegable {
   overflow: hidden;
@@ -290,3 +293,8 @@ body.modo-oscuro .submit-btn:hover {
   max-height: 300px; /* ajusta según el contenido */
   opacity: 1;
 }
+
+
+/*visualizacion de mobiles*/
+
+

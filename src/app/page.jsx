@@ -115,9 +115,8 @@ export default function Encuesta() {
             src="/image2.jpg"
             alt="Humedal del campus Miraflores"
             width={1000}
-            height={200}
-            style={{width: '100%',height: 'auto',objectFit: 'cover'}} 
-          />
+            height={300}
+            style={{width: '100%',height: 'auto',objectFit: 'cover'}} />
           <h1 className="titulo-imagen">MIRADAL</h1>
         </div>
 
