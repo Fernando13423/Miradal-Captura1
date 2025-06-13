@@ -126,25 +126,28 @@ export default function Encuesta() {
           <h2 className='titulo-humedal'>Encuesta MIRADAL</h2>
           <p className="intro-encuesta">Captura de percepciones sobre el humedal del Campus Miraflores</p>
 
-          <button
-            type="button"
-            className="boton-ver-mas"
-            onClick={() => setMostrarDescripcion(prev => !prev)} 
-          >
-            {mostrarDescripcion ? 'Ver menos...' : 'Ver más...'}
-          </button>
+         <button
+          type="button"
+          className="boton-ver-mas"
+          onClick={() => setMostrarDescripcion(!mostrarDescripcion)}
+        >
+          {mostrarDescripcion ? 'Ver menos' : 'Ver más'}
+        </button>
 
-          
-          {mostrarDescripcion && (
-            <p className="descripcion-encuesta">
-              Esta encuesta forma parte del proyecto MIRADAL, 
+
+          <div className={`descripcion-encuesta desplegable ${mostrarDescripcion ? 'activo' : ''}`}>
+            <p>
+                         Esta encuesta forma parte del proyecto MIRADAL, 
               una iniciativa estudiantil que busca recopilar 
               información sobre la percepción que tienen las 
               personas acerca del estado actual del humedal 
               ubicado en el Campus Miraflores de la Universidad 
-              Austral de Chile. 
+              Austral de Chile.
             </p>
-          )}
+          </div>
+
+
+        
         </div>
 
         <div className="bloque-pregunta">
