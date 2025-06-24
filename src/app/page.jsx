@@ -176,7 +176,7 @@ export default function Encuesta() {
 
        
         <div className="bloque-pregunta">
-          <p className="pregunta-titulo">En este MOMENTO,¿Ves o escuchas?.</p>
+          <p className="pregunta-titulo">En este MOMENTO,¿Ves o escuchas...?.</p>
           <div className="encabezado-opciones">
              <span></span>
             <span>Sí</span>
@@ -219,13 +219,14 @@ export default function Encuesta() {
 
         
         <div className="bloque-pregunta">
-          <p className="pregunta-titulo">Agrega un comentario respecto al humedal si quieres:</p>
+          <p className="pregunta-titulo">Si lo deseas, puedes agregar un comentario sobre el humedal:</p>
           <textarea
             name="comentario"
             value={comentario}
             onChange={(e) => setComentario(e.target.value)} // Actualiza el estado 'comentario'
             rows="4"
             cols="50"
+            maxLength={200} 
             placeholder="Escribe tu comentario aquí..."
             className="input-textarea"
           />
