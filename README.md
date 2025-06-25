@@ -18,4 +18,3 @@ Facilitar la captura de datos ambientales comunitarios mediante una aplicación 
 
 -Fernando Ríos.
 -Samantha Espinoza.
--Gustavo Melilanca.
