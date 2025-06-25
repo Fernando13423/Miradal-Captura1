@@ -37,7 +37,7 @@ export default function Encuesta() {
   };
 
   // Función que maneja el envío del formulario
-  const manejarEnvio = (e) => {
+  const manejarEnvio = async(e) => {
     e.preventDefault();  // Previene que la página se recargue al enviar el formulario
 
     // Validación de los campos
@@ -70,7 +70,7 @@ export default function Encuesta() {
 
     
     const datos = {
-      "id-respuesta": idRespuesta,
+      "id_respuesta": idRespuesta,
       respuestas: [
         { item: "conoce-nombre-humedal", respuesta: conoce },
         { item: "nombre-humedal", respuesta: conoce === 'si' ? nombre : '' },
@@ -85,15 +85,32 @@ export default function Encuesta() {
         { item: "comentario", respuesta: comentario || '' },
       ]
     };
-
-
-
-
-    
+  
     // Aquí es donde normalmente se enviaría a la API (con un fetch o axios)
     console.log(datos);  
-    alert('Respuestas enviadas en la consola.');  
+    
 
+    try {
+     const respuesta = await fetch('https://miradal-api.vercel.app/api/encuesta', { // 🔴 Cambiar por el endpoint real.
+          method: 'POST',
+          headers: {
+                'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(datos),
+      });
+
+      if (respuesta.ok) {
+        alert('Respuestas enviadas correctamente.');
+        // Opcional: Limpiar el formulario después de enviar
+
+      } else {
+        alert('Hubo un error al enviar las respuestas');
+      }
+    } catch (error) {
+      console.error('Error al enviar:', error);
+      alert('Hubo un problema al conectar con el servidor.');
+    }
+    
 
 
   };
@@ -176,7 +193,7 @@ export default function Encuesta() {
 
        
         <div className="bloque-pregunta">
-          <p className="pregunta-titulo">En este MOMENTO, ¿Ves o escuchas...?</p>
+          <p className="pregunta-titulo">En este MOMENTO,¿Ves o escuchas...?.</p>
           <div className="encabezado-opciones">
              <span></span>
             <span>Sí</span>
