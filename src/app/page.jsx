@@ -311,7 +311,7 @@ export default function Encuesta() {
         <div ref={mensajeFinalRef} className="mensaje-final">
           <h2>¡Gracias por responder!</h2>
           <p>Tus respuestas han sido registradas correctamente.</p>
-          <button className="boton-ir-dashboard" onClick={() => window.location.href = '/dashboard'}>
+          <button className="boton-ir-dashboard" onClick={() => window.location.href = 'https://miradal-dash.vercel.app'}>
             Observar información sobre el humedal y la percepción de demas usuarios sobre este.
           </button>
         </div>
