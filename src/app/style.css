@@ -284,7 +284,7 @@ body.modo-oscuro .submit-btn:hover {
   max-height: 200px; /* Ajusta si necesitas más espacio */
   opacity: 1;
 }
-
+/*captcha*/
 .bloque-captcha {
   display: flex;
   justify-content: center;  /* Centra el reCAPTCHA horizontalmente */
@@ -293,8 +293,67 @@ body.modo-oscuro .submit-btn:hover {
 }
 
 
+/*mensaje final*/
+.mensaje-final {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1rem;
+}
 
+.mensaje-final {
+  text-align: center;
+  margin: 2rem auto;
+  max-width: 500px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  font-family: 'Nunito Sans', sans-serif;
+  color: #0f2a19;
+}
 
+.mensaje-final h2 {
+  font-size: 24px;
+  color: #00643e;
+  margin-bottom: 1rem;
+}
 
+.mensaje-final p {
+  font-size: 16px;
+  margin-bottom: 2rem;
+}
 
+.boton-ir-dashboard {
+  background-color: #007724;
+  color: #e9ffe5;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
 
+.boton-ir-dashboard:hover {
+  background-color: #005a1a;
+  transform: scale(1.05);
+}
+
+body.modo-oscuro .mensaje-final {
+  background-color: #0e3028;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+body.modo-oscuro .mensaje-final h2 {
+  color: #03a77e;
+}
+
+body.modo-oscuro .boton-ir-dashboard {
+  background-color: #004538;
+  color: #ffffff;
+}
+
+body.modo-oscuro .boton-ir-dashboard:hover {
+  background-color: #002f25;
+}
