@@ -3,11 +3,23 @@
 import { useState } from 'react'; 
 import './style.css'; 
 import Image from 'next/image'; 
+import ReCAPTCHA from 'react-google-recaptcha';
 
 export default function Encuesta() {  
   const [mostrarDescripcion, setMostrarDescripcion] = useState(false);  
-
   const [modoOscuro, setModoOscuro] = useState(false);  
+
+    // 🆕 Estado del captcha
+  const [captchaValido, setCaptchaValido] = useState(false);
+
+  // 🆕 Función para verificar el captcha
+  const verificarCaptcha = (valor) => {
+    if (valor) {
+      setCaptchaValido(true);
+    } else {
+      setCaptchaValido(false);
+    }
+  };
 
   // Función para alternar el modo oscuro
   const toggleModo = () => {
@@ -39,6 +51,12 @@ export default function Encuesta() {
   // Función que maneja el envío del formulario
   const manejarEnvio = async(e) => {
     e.preventDefault();  // Previene que la página se recargue al enviar el formulario
+
+        // 🛑 Nueva validación del captcha
+    if (!captchaValido) {
+      alert('Por favor, verifica el captcha.');
+      return;
+    }
 
     // Validación de los campos
     if (conoce === '') {
@@ -247,6 +265,16 @@ export default function Encuesta() {
             placeholder="Escribe tu comentario aquí..."
             className="input-textarea"
           />
+        </div>
+
+        
+        {/* 🆕 Aquí insertamos el captcha */}
+          
+        <div className="bloque-captcha">
+            <ReCAPTCHA
+              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+              onChange={verificarCaptcha}
+            />
         </div>
 
         

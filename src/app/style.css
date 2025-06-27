@@ -285,6 +285,16 @@ body.modo-oscuro .submit-btn:hover {
   opacity: 1;
 }
 
+.bloque-captcha {
+  display: flex;
+  justify-content: center;  /* Centra el reCAPTCHA horizontalmente */
+  align-items: center;      /* Centra el reCAPTCHA verticalmente */
+  margin-top: 20px;         /* Puedes ajustar el espacio superior */
+}
+
+
+
+
 
 
 
