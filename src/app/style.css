@@ -296,13 +296,7 @@ body.modo-oscuro .submit-btn:hover {
 /*mensaje final*/
 .mensaje-final {
   text-align: center;
-  margin-top: 2rem;
-  padding: 1rem;
-}
-
-.mensaje-final {
-  text-align: center;
-  margin: 2rem auto;
+  margin: 0 auto;  /* sin margen superior */
   max-width: 500px;
   background-color: #ffffff;
   border-radius: 20px;
@@ -310,6 +304,7 @@ body.modo-oscuro .submit-btn:hover {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   font-family: 'Nunito Sans', sans-serif;
   color: #0f2a19;
+  margin-top: 30vh;
 }
 
 .mensaje-final h2 {
@@ -340,7 +335,7 @@ body.modo-oscuro .submit-btn:hover {
 }
 
 body.modo-oscuro .mensaje-final {
-  background-color: #0e3028;
+  background-color: #000000;
   color: #ffffff;
   box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
 }
@@ -355,5 +350,6 @@ body.modo-oscuro .boton-ir-dashboard {
 }
 
 body.modo-oscuro .boton-ir-dashboard:hover {
-  background-color: #002f25;
+  background-color: #065d54;
 }
+
