@@ -116,7 +116,7 @@ export default function Encuesta() {
     
 
     try {
-     const respuesta = await fetch('https://miradal-api.vercel.app/api/encuesta', { // Cambiar por el endpoint real.
+     const respuesta = await fetch('https://miradal-api.vercel.app/api/guardarRespuesta ', { // Cambiar por el endpoint real.
           method: 'POST',
           headers: {
                 'Content-Type': 'application/json',
