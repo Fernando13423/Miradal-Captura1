@@ -305,6 +305,19 @@ export default function Encuesta() {
           <div className="submit-container">
             <button type="submit" className="submit-btn">Enviar respuestas</button>
           </div>
+
+          <div className="footer-simple">
+             <Image
+               src={modoOscuro ? '/logo-uach-oscuro.png' : '/logo-uach.png'}
+              alt="Logo UACh"
+              width={160}
+              height={85}
+              className="logo-footer"
+            />
+            <p>MIRADAL - Ingeniería Civil Informática UACh</p>
+            <p>Doscente a cargo: Julio Daniel Guerra Hollstein -  jguerra@inf.uach.cl</p>
+          </div>
+
         </form>
       ) : (
         // Contenido mostrado cuando se envía el formulario

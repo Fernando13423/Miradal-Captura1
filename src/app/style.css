@@ -353,3 +353,20 @@ body.modo-oscuro .boton-ir-dashboard:hover {
   background-color: #065d54;
 }
 
+/*footer*/
+.footer-simple {
+  text-align: center;
+  margin-top: 0.2rem;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+.footer-simple img {
+  margin-bottom: 0.2rem; /* Espacio entre el logo y el texto */
+}
+
+.modo-oscuro .footer-simple {
+  color: #d1d5db;
+}
+
