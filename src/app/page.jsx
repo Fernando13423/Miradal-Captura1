@@ -315,7 +315,7 @@ export default function Encuesta() {
               className="logo-footer"
             />
             <p>MIRADAL - Ingeniería Civil Informática UACh</p>
-            <p>Doscente a cargo: Julio Daniel Guerra Hollstein -  jguerra@inf.uach.cl</p>
+            <p>Docente a cargo: Julio Daniel Guerra Hollstein -  jguerra@inf.uach.cl</p>
           </div>
 
         </form>
