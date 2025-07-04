@@ -234,7 +234,7 @@ export default function Encuesta() {
 
         
           <div className="bloque-pregunta">
-            <p className="pregunta-titulo">En este MOMENTO,¿Ves o escuchas...?.</p>
+            <p className="pregunta-titulo">En ESTE MOMENTO, ¿Ves o escuchas...?𓆏</p>
             <div className="encabezado-opciones">
               <span></span>
               <span>Sí</span>
@@ -315,7 +315,7 @@ export default function Encuesta() {
               className="logo-footer"
             />
             <p>MIRADAL - Ingeniería Civil Informática UACh</p>
-            <p>Doscente a cargo: Julio Daniel Guerra Hollstein -  jguerra@inf.uach.cl</p>
+            <p>Docente a cargo: Julio Daniel Guerra Hollstein -  jguerra@inf.uach.cl</p>
           </div>
 
         </form>
@@ -325,7 +325,7 @@ export default function Encuesta() {
           <h2>¡Gracias por responder!</h2>
           <p>Tus respuestas han sido registradas correctamente.</p>
           <button className="boton-ir-dashboard" onClick={() => window.location.href = 'https://miradal-dash.vercel.app'}>
-            Observar información sobre el humedal y la percepción de demas usuarios sobre este.
+            Observar información sobre el humedal y la percepción de los usuarios sobre éste.
           </button>
         </div>
       )}
