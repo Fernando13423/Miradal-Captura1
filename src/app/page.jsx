@@ -234,7 +234,7 @@ export default function Encuesta() {
 
         
           <div className="bloque-pregunta">
-            <p className="pregunta-titulo">En ESTE MOMENTO, ¿Ves o escuchas...?𓆏</p>
+            <p className="pregunta-titulo">En ESTE MOMENTO, ¿Ves o escuchas...?</p>
             <div className="encabezado-opciones">
               <span></span>
               <span>Sí</span>
